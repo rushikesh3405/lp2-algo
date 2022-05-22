@@ -1,13 +1,11 @@
 
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 #define V 5
  
-
 int minKey(int key[], bool mstSet[])
 {
-    
     int min = INT_MAX, min_index;
  
     for (int v = 0; v < V; v++)
@@ -26,11 +24,10 @@ void printMST(int parent[], int graph[V][V])
  
 void primMST(int graph[V][V])
 {
-
     int parent[V];
-
+     
     int key[V];
-    
+     
     bool mstSet[V];
  
     for (int i = 0; i < V; i++)
@@ -39,10 +36,10 @@ void primMST(int graph[V][V])
     key[0] = 0;
     parent[0] = -1; 
  
-     for (int count = 0; count < V - 1; count++)
+    for (int count = 0; count < V - 1; count++)
     {
         int u = minKey(key, mstSet);
-
+ 
         mstSet[u] = true;
  
         for (int v = 0; v < V; v++)
@@ -51,7 +48,7 @@ void primMST(int graph[V][V])
                 parent[v] = u, key[v] = graph[u][v];
     }
  
-    printMST(parent, graph);
+     printMST(parent, graph);
 }
  
 int main()
@@ -66,14 +63,3 @@ int main()
  
     return 0;
 }
- 
-// This code is contributed by rathbhupendra
-
-/*Output: 
-
-Edge   Weight
-0 - 1    2
-1 - 2    3
-0 - 3    6
-1 - 4    5
-*/
